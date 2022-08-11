@@ -3,11 +3,10 @@
  * @return {number}
  */
 
-var s = "MCMXCIV";
+var s = "LVIII";
 
 var romanToInt = function(s) {
   var arr = [];
-  var subtractValues = [];
   let sum = 0;
   let subtractSum = 0;
   const conversions = new Map([
@@ -31,13 +30,9 @@ var romanToInt = function(s) {
   //storing values that need to be subtracted
   for(var j = 0; j < arr.length; j++){
     if (arr[j] < arr[j+1]){
-      subtractValues.push(arr[j]);
+      subtractSum += arr[j];
     }
     sum += arr[j];
-  }
-
-  for(var k = 0; k < subtractValues.length; k++){
-    subtractSum += subtractValues[k];
   }
 
   var total = sum - (subtractSum*2);
